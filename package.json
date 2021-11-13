@@ -6,7 +6,11 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "build-lib": "ng build ng-selectable-bar",
+    "bundle-assets": "XCOPY projects\\ng-selectable-bar\\src\\assets dist\\ng-selectable-bar\\assets /s /i /y /d",
+    "release": "npm run build-lib && npm version patch --prefix ./projects/ng-selectable-bar && npm run build-lib && npm run bundle-assets",
+    "publish": "npm run release && npm publish ./dist/ng-selectable-bar"
   },
   "private": true,
   "dependencies": {
